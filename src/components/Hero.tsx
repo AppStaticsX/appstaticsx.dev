@@ -143,7 +143,7 @@ const Hero = () => {
           {/* Enhanced Profile Image with optimized glow */}
           <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-600 to-teal-600 dark:from-blue-500 dark:to-teal-500 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/50 dark:shadow-blue-400/50 transform hover:scale-110 transition-all duration-500 hover:shadow-3xl hover:shadow-blue-500/70 dark:hover:shadow-blue-400/70">
             <img
-              src="https://github.com/AppStaticsX/My-Portfolio/blob/main/src/images/profile.jpg?raw=true"
+              src="https://github.com/AppStaticsX/My-Portfolio/blob/main/src/images/profile_new.jpg?raw=true"
               alt="Anushka Umayanga"
               className="w-full h-full rounded-full object-cover shadow-lg"
             />
