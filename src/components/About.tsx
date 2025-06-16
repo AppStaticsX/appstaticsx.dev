@@ -5,7 +5,7 @@ const About = () => {
   const stats = [
     { icon: Code, label: 'Projects Completed', value: '15+' },
     { icon: Smartphone, label: 'Mobile Apps', value: '12+' },
-    { icon: Users, label: 'Happy Clients', value: '10+' },
+    { icon: Users, label: 'Happy Clients', value: '3+' },
     { icon: Award, label: 'Years Experience', value: '3+' },
   ];
 
