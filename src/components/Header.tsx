@@ -45,7 +45,7 @@ const Header = () => {
             </h1>
           </div>
 
-          /* Desktop Navigation */
+          
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
@@ -60,7 +60,7 @@ const Header = () => {
               ))}
             </div>
             
-            /* Theme Toggle */
+            
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 dark:hover:shadow-blue-400/25 hover:scale-110"

@@ -40,7 +40,7 @@ const Footer = () => {
               </p>
             </div>
 
-            /* Quick Links */
+            // Quick Links
             <div className="space-y-4 animate-fade-in-up animation-delay-200">
               <h4 className="text-lg font-semibold">Quick Links</h4>
               <ul className="space-y-2">
@@ -64,7 +64,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            /* Services */
+            // services
             <div className="space-y-4 animate-fade-in-up animation-delay-400">
               <h4 className="text-lg font-semibold">Services</h4>
               <ul className="space-y-2 text-gray-400">
@@ -77,7 +77,7 @@ const Footer = () => {
             </div>
           </div>
 
-          /* Bottom Section */
+          // Bottom section
           <div className="border-t border-gray-800 pt-8 animate-fade-in-up animation-delay-600">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-sm flex items-center gap-2">
@@ -120,7 +120,6 @@ const Footer = () => {
               </button>
             </div>
 
-            {/* Dialog Content */}
             <div className="p-6 overflow-y-auto max-h-[60vh] text-gray-700 dark:text-gray-300">
               <div className="space-y-6">
                 <div>
@@ -216,7 +215,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Dialog Footer */}
             <div className="flex justify-end p-6 border-t border-gray-200 dark:border-gray-700">
               <button
                 onClick={closePrivacyDialog}
@@ -229,7 +227,6 @@ const Footer = () => {
         </div>
       )}
 
-      {/* Terms of Service Dialog */}
       {showTermsDialog && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
@@ -244,7 +241,6 @@ const Footer = () => {
               </button>
             </div>
 
-            {/* Dialog Content */}
             <div className="p-6 overflow-y-auto max-h-[60vh] text-gray-700 dark:text-gray-300">
               <div className="space-y-6">
                 <div>
@@ -399,7 +395,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Dialog Footer */}
             <div className="flex justify-end p-6 border-t border-gray-200 dark:border-gray-700">
               <button
                 onClick={closeTermsDialog}

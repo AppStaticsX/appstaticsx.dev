@@ -115,7 +115,7 @@ const Contact = () => {
               </p>
             </div>
 
-            /* Contact Details */
+            // Contact Info Cards
             <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <a
@@ -139,7 +139,7 @@ const Contact = () => {
               ))}
             </div>
 
-            /* Social Links */
+            // Social media
             <div className="animate-fade-in animation-delay-500">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Follow Me on Social Media
@@ -160,13 +160,13 @@ const Contact = () => {
             </div>
           </div>
 
-          /* Contact Form */
+        
           <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg shadow-blue-500/10 dark:shadow-blue-400/10 border border-gray-200/50 dark:border-gray-700/50 animate-fade-in-right hover:shadow-xl hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 transition-all duration-500">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Send Me a Message
             </h3>
 
-            /* Status Messages */
+          
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3 animate-fade-in">
                 <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />

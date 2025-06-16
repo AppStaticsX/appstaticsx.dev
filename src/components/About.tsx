@@ -44,7 +44,7 @@ const About = () => {
               </p>
             </div>
 
-            /* Skills highlight */
+        
             <div className="grid grid-cols-2 gap-4 animate-fade-in-up animation-delay-800">
               <div className="space-y-2 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 transition-all duration-300">
                 <h4 className="font-semibold text-gray-900 dark:text-white">Frontend</h4>
@@ -65,7 +65,7 @@ const About = () => {
             </div>
           </div>
 
-          /* Stats */
+        
           <div className="grid grid-cols-2 gap-6 animate-fade-in-right">
             {stats.map((stat, index) => (
               <div
