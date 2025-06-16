@@ -72,7 +72,7 @@ const Hero = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-teal-400/20 dark:bg-teal-500/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse animation-delay-2000 shadow-2xl shadow-teal-500/50"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-400/10 dark:bg-purple-500/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-2xl animate-pulse animation-delay-4000 shadow-2xl shadow-purple-500/30"></div>
         
-        /* Floating Technology Icons - Hide when screen width less than 1064px */
+
         {showFloatingIcons && (
           <>
             <div className={`absolute top-16 left-12 transform rotate-12 ${isLaptop ? 'animate-float animation-delay-1000' : ''}`}>
@@ -184,7 +184,7 @@ const Hero = () => {
             ))}
           </div>
 
-          /* Buttons */
+        
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-500 ${
             isTypingComplete ? 'animate-fade-in-up opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '1000ms' }}>
@@ -204,7 +204,7 @@ const Hero = () => {
             </button>
           </div>
 
-          /* Scroll indicator */
+          
           <button
             onClick={handleScroll}
             className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-300 animate-bounce hover:scale-110 p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20 backdrop-blur-sm ${

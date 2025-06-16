@@ -69,7 +69,7 @@ const Header = () => {
             </button>
           </div>
 
-          /* Mobile menu button and theme toggle */
+        
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={toggleTheme}
@@ -86,7 +86,7 @@ const Header = () => {
           </div>
         </div>
 
-        /* Mobile Navigation */
+        
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg shadow-lg shadow-blue-500/10 dark:shadow-blue-400/20 mt-2 border border-gray-200/50 dark:border-gray-700/50">
