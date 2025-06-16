@@ -40,7 +40,7 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Quick Links */}
+            /* Quick Links */
             <div className="space-y-4 animate-fade-in-up animation-delay-200">
               <h4 className="text-lg font-semibold">Quick Links</h4>
               <ul className="space-y-2">
@@ -64,7 +64,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Services */}
+            /* Services */
             <div className="space-y-4 animate-fade-in-up animation-delay-400">
               <h4 className="text-lg font-semibold">Services</h4>
               <ul className="space-y-2 text-gray-400">
@@ -77,11 +77,11 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Section */}
+          /* Bottom Section */
           <div className="border-t border-gray-800 pt-8 animate-fade-in-up animation-delay-600">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-400 text-sm flex items-center gap-2">
-                © {currentYear} @AppStaticsX - All Rights Reserved.
+                © {currentYear} @Anushka Umayanga - All Rights Reserved.
               </p>
               
               <div className="flex gap-6 text-sm text-gray-400">
