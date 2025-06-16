@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Facebook, CheckCircle, AlertCircle } from 'lucide-react';
 
 const Contact = () => {
+  // Form state management
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +14,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  // Handle form input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -20,22 +22,24 @@ const Contact = () => {
     });
   };
 
+  // Handle form submission and email sending
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
     try {
-      // Create the email parameters
+      // Prepare email data for EmailJS
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
         reply_to: formData.email,
-        time: new Date().toLocaleString() // Optional: Add timestam
+        time: new Date().toLocaleString()
       };
 
+      // Send email using EmailJS service
       await emailjs.send(
         'service_do8v4pp', // Replace with your service ID
         'template_9tbdk38', // Replace with your template ID
@@ -44,7 +48,7 @@ const Contact = () => {
       );
 
       setSubmitStatus('success');
-      // Reset form data on success
+      // Clear form after successful submission
       setFormData({
         name: '',
         email: '',
@@ -56,11 +60,12 @@ const Contact = () => {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      // Reset status after 5 seconds
+      // Auto-hide status message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
 
+  // Contact information data
   const contactInfo = [
     {
       icon: Mail,
@@ -82,6 +87,7 @@ const Contact = () => {
     }
   ];
 
+  // Social media links
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/in/anushka-umayanga', label: 'LinkedIn' },
     { icon: Github, href: 'https://github.com/AppStaticsX', label: 'GitHub' },
@@ -91,6 +97,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Let's Work Together
@@ -102,8 +109,9 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Left Column - Contact Information */}
           <div className="space-y-8 animate-fade-in-left">
+            {/* Introduction Text */}
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Get In Touch
@@ -115,7 +123,7 @@ const Contact = () => {
               </p>
             </div>
 
-            // Contact Info Cards
+            {/* Contact Info Cards */}
             <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <a
@@ -139,7 +147,7 @@ const Contact = () => {
               ))}
             </div>
 
-            // Social media
+            {/* Social Media Links */}
             <div className="animate-fade-in animation-delay-500">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Follow Me on Social Media
@@ -160,13 +168,13 @@ const Contact = () => {
             </div>
           </div>
 
-        
+          {/* Right Column - Contact Form */}
           <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg shadow-blue-500/10 dark:shadow-blue-400/10 border border-gray-200/50 dark:border-gray-700/50 animate-fade-in-right hover:shadow-xl hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 transition-all duration-500">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Send Me a Message
             </h3>
 
-          
+            {/* Success Message */}
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3 animate-fade-in">
                 <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
@@ -176,6 +184,7 @@ const Contact = () => {
               </div>
             )}
 
+            {/* Error Message */}
             {submitStatus === 'error' && (
               <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-3 animate-fade-in">
                 <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
@@ -185,7 +194,9 @@ const Contact = () => {
               </div>
             )}
             
+            {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name and Email Fields */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -222,6 +233,7 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* Subject Field */}
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Subject *
@@ -239,6 +251,7 @@ const Contact = () => {
                 />
               </div>
 
+              {/* Message Field */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Message *
@@ -256,6 +269,7 @@ const Contact = () => {
                 ></textarea>
               </div>
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}

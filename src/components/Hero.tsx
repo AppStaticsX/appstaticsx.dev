@@ -2,21 +2,25 @@ import { useState, useEffect } from 'react';
 import { ArrowDown, Download, Mail, Smartphone, Code, Database, Zap, Apple } from 'lucide-react';
 
 const Hero = () => {
+  // State for typewriter effect
   const [displayedName, setDisplayedName] = useState('');
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+  
+  // Device detection for animations
   const [isLaptop, setIsLaptop] = useState(false);
   const [showFloatingIcons, setShowFloatingIcons] = useState(false);
+  
   const fullName = 'Anushka Umayanga';
   const typingSpeed = 150;
 
   useEffect(() => {
-    // Detect if device is laptop/desktop for animations
+    // Check if user is on laptop/desktop for better animations
     const checkDevice = () => {
       const hasHover = window.matchMedia('(hover: hover)').matches;
       const isLargeScreen = window.innerWidth >= 1024;
       setIsLaptop(hasHover && isLargeScreen);
       
-      // Show floating icons only when screen width >= 1064
+      // Only show floating tech icons on wider screens
       setShowFloatingIcons(window.innerWidth >= 1064);
     };
 
@@ -26,6 +30,7 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
+    // Typewriter effect for name animation
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
       if (currentIndex <= fullName.length) {
@@ -40,6 +45,7 @@ const Hero = () => {
     return () => clearInterval(typingInterval);
   }, []);
 
+  // Smooth scroll to about section
   const handleScroll = () => {
     const aboutSection = document.querySelector('#about');
     if (aboutSection) {
@@ -47,6 +53,7 @@ const Hero = () => {
     }
   };
 
+  // Smooth scroll to contact section
   const handleGetInTouch = () => {
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
@@ -54,6 +61,7 @@ const Hero = () => {
     }
   };
 
+  // Download CV functionality
   const handleDownloadCV = () => {
     const cvUrl = 'https://github.com/AppStaticsX/My-Portfolio/blob/main/src/documents/CV_Resume.pdf?raw=true';
     const link = document.createElement('a');
@@ -66,14 +74,18 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500">
+      
+      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Large gradient blobs for visual interest */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/20 dark:bg-blue-500/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse shadow-2xl shadow-blue-500/50"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-teal-400/20 dark:bg-teal-500/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse animation-delay-2000 shadow-2xl shadow-teal-500/50"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-400/10 dark:bg-purple-500/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-2xl animate-pulse animation-delay-4000 shadow-2xl shadow-purple-500/30"></div>
         
-
+        {/* Floating tech icons - only show on larger screens */}
         {showFloatingIcons && (
           <>
+            {/* Checkmark icon */}
             <div className={`absolute top-16 left-12 transform rotate-12 ${isLaptop ? 'animate-float animation-delay-1000' : ''}`}>
               <div className="w-12 h-12 bg-blue-500/20 dark:bg-blue-400/30 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-lg shadow-blue-500/30 hover:scale-110 transition-transform duration-300">
                 <svg viewBox="0 0 24 24" className="w-6 h-6 text-blue-600 dark:text-blue-400">
@@ -82,36 +94,42 @@ const Hero = () => {
               </div>
             </div>
 
+            {/* Code icon */}
             <div className={`absolute top-32 right-20 transform -rotate-45 ${isLaptop ? 'animate-float animation-delay-2000' : ''}`}>
               <div className="w-16 h-16 bg-orange-500/20 dark:bg-orange-400/30 rounded-full flex items-center justify-center backdrop-blur-sm shadow-lg shadow-orange-500/30 hover:scale-110 transition-transform duration-300">
                 <Code className="w-8 h-8 text-orange-600 dark:text-orange-400" />
               </div>
             </div>
 
+            {/* Database icon */}
             <div className={`absolute top-1/4 left-16 transform rotate-45 ${isLaptop ? 'animate-float animation-delay-3000' : ''}`}>
               <div className="w-10 h-10 bg-red-500/20 dark:bg-red-400/30 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-lg shadow-red-500/30 hover:scale-110 transition-transform duration-300">
                 <Database className="w-5 h-5 text-red-600 dark:text-red-400" />
               </div>
             </div>
 
+            {/* Mobile phone icon */}
             <div className={`absolute top-1/3 right-12 transform -rotate-12 ${isLaptop ? 'animate-float animation-delay-1500' : ''}`}>
               <div className="w-14 h-14 bg-green-500/20 dark:bg-green-400/30 rounded-full flex items-center justify-center backdrop-blur-sm shadow-lg shadow-green-500/30 hover:scale-110 transition-transform duration-300">
                 <Smartphone className="w-7 h-7 text-green-600 dark:text-green-400" />
               </div>
             </div>
 
+            {/* Lightning bolt icon */}
             <div className={`absolute bottom-1/3 left-20 transform rotate-30 ${isLaptop ? 'animate-float animation-delay-2500' : ''}`}>
               <div className="w-12 h-12 bg-purple-500/20 dark:bg-purple-400/30 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-lg shadow-purple-500/30 hover:scale-110 transition-transform duration-300">
                 <Zap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
             </div>
 
+            {/* Apple icon */}
             <div className={`absolute bottom-1/4 right-24 transform -rotate-30 ${isLaptop ? 'animate-float animation-delay-4000' : ''}`}>
               <div className="w-11 h-11 bg-gray-500/20 dark:bg-gray-400/30 rounded-full flex items-center justify-center backdrop-blur-sm shadow-lg shadow-gray-500/30 hover:scale-110 transition-transform duration-300">
                 <Apple className="w-5 h-5 text-gray-700 dark:text-gray-300" />
               </div>
             </div>
 
+            {/* Smiley face icon */}
             <div className={`absolute bottom-1/2 left-1/4 transform rotate-15 ${isLaptop ? 'animate-float animation-delay-3500' : ''}`}>
               <div className="w-13 h-13 bg-indigo-500/20 dark:bg-indigo-400/30 rounded-lg flex items-center justify-center backdrop-blur-sm shadow-lg shadow-indigo-500/30 hover:scale-110 transition-transform duration-300">
                 <svg viewBox="0 0 24 24" className="w-6 h-6 text-indigo-600 dark:text-indigo-400">
@@ -120,6 +138,7 @@ const Hero = () => {
               </div>
             </div>
 
+            {/* Star icon */}
             <div className={`absolute top-2/3 right-32 transform rotate-60 ${isLaptop ? 'animate-float animation-delay-1800' : ''}`}>
               <div className="w-9 h-9 bg-cyan-500/20 dark:bg-cyan-400/30 rounded-full flex items-center justify-center backdrop-blur-sm shadow-lg shadow-cyan-500/30 hover:scale-110 transition-transform duration-300">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 text-cyan-600 dark:text-cyan-400">
@@ -130,14 +149,18 @@ const Hero = () => {
           </>
         )}
 
+        {/* Small decorative dots scattered around */}
         <div className={`absolute top-20 left-20 w-2 h-2 bg-blue-400 dark:bg-blue-300 rounded-full shadow-lg shadow-blue-500/50 ${isLaptop ? 'animate-bounce animation-delay-1000' : ''}`}></div>
         <div className={`absolute top-40 right-32 w-3 h-3 bg-teal-400 dark:bg-teal-300 rounded-full shadow-lg shadow-teal-500/50 ${isLaptop ? 'animate-bounce animation-delay-2000' : ''}`}></div>
         <div className={`absolute bottom-32 left-32 w-2 h-2 bg-purple-400 dark:bg-purple-300 rounded-full shadow-lg shadow-purple-500/50 ${isLaptop ? 'animate-bounce animation-delay-3000' : ''}`}></div>
         <div className={`absolute bottom-20 right-20 w-1 h-1 bg-pink-400 dark:bg-pink-300 rounded-full shadow-lg shadow-pink-500/50 ${isLaptop ? 'animate-bounce animation-delay-4000' : ''}`}></div>
       </div>
 
+      {/* Main content area */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-8 animate-fade-in-up">
+          
+          {/* Profile picture with gradient background */}
           <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-600 to-teal-600 dark:from-blue-500 dark:to-teal-500 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/50 dark:shadow-blue-400/50 transform hover:scale-110 transition-all duration-500 hover:shadow-3xl hover:shadow-blue-500/70 dark:hover:shadow-blue-400/70">
             <img
               src="https://github.com/AppStaticsX/My-Portfolio/blob/main/src/images/profile_new.jpg?raw=true"
@@ -145,6 +168,8 @@ const Hero = () => {
               className="w-full h-full rounded-full object-cover shadow-lg"
             />
           </div>
+          
+          {/* Name and title section */}
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white leading-tight animate-slide-in-left">
               Hi, I'm{' '}
@@ -162,6 +187,7 @@ const Hero = () => {
             </h2>
           </div>
 
+          {/* Description paragraph */}
           <p className={`text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed transition-all duration-500 ${
             isTypingComplete ? 'animate-fade-in opacity-100' : 'opacity-0'
           }`}>
@@ -169,6 +195,8 @@ const Hero = () => {
             Expert in Java, Flutter, Kotlin, and Python with a focus on creating beautiful, 
             performant mobile experiences.
           </p>
+          
+          {/* Technology tags */}
           <div className={`flex flex-wrap justify-center gap-3 max-w-md mx-auto transition-all duration-500 ${
             isTypingComplete ? 'animate-fade-in-up opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '500ms' }}>
@@ -183,7 +211,7 @@ const Hero = () => {
             ))}
           </div>
 
-        
+          {/* Action buttons */}
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-500 ${
             isTypingComplete ? 'animate-fade-in-up opacity-100' : 'opacity-0'
           }`} style={{ animationDelay: '1000ms' }}>
@@ -203,7 +231,7 @@ const Hero = () => {
             </button>
           </div>
 
-          
+          {/* Scroll down indicator */}
           <button
             onClick={handleScroll}
             className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-300 animate-bounce hover:scale-110 p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-800/20 backdrop-blur-sm ${

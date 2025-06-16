@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Skills = () => {
+  // Define all the skills data organized by categories
   const skillCategories = [
     {
       title: 'Mobile Development',
@@ -31,6 +32,7 @@ const Skills = () => {
     },
   ];
 
+  // Component for creating animated circular progress bars
   interface CircularProgressProps {
     percentage: number;
     color: string;
@@ -39,6 +41,7 @@ const Skills = () => {
   }
 
   const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, color, size = 80, strokeWidth = 6 }) => {
+    // Calculate circle dimensions and animation values
     const radius = (size - strokeWidth) / 2;
     const circumference = radius * 2 * Math.PI;
     const strokeDasharray = `${circumference} ${circumference}`;
@@ -51,7 +54,7 @@ const Skills = () => {
           width={size}
           height={size}
         >
-          {/* Background circle */}
+          {/* Background circle - the gray circle behind the progress */}
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -61,7 +64,7 @@ const Skills = () => {
             fill="transparent"
             className="text-gray-200 dark:text-gray-700"
           />
-          {/* Progress circle */}
+          {/* Progress circle - the colored circle that shows the skill level */}
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -77,11 +80,12 @@ const Skills = () => {
             }}
           />
         </svg>
-        {/* Percentage text */}
+        {/* Percentage text in the center of the circle */}
         <span className="absolute text-sm font-bold text-gray-700 dark:text-gray-300">
           {percentage}%
         </span>
         
+        {/* Dynamic animation keyframes for each skill level */}
         <style>{`
           @keyframes drawCircle-${percentage} {
             from {
@@ -98,6 +102,7 @@ const Skills = () => {
 
   return (
     <>
+      {/* CSS animations for the entire component */}
       <style>{`
         @keyframes fadeInUp {
           from {
@@ -105,7 +110,6 @@ const Skills = () => {
             transform: translateY(30px);
           }
           to {
-            opacity: 1;
             opacity: 1;
             transform: translateY(0);
           }
@@ -131,6 +135,7 @@ const Skills = () => {
       
       <section id="skills" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section header with title and description */}
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Skills & Expertise
@@ -141,6 +146,7 @@ const Skills = () => {
             </p>
           </div>
 
+          {/* Skills categories grid - displays each category as a card */}
           <div className="grid lg:grid-cols-3 gap-8">
             {skillCategories.map((category, categoryIndex) => (
               <div
@@ -152,6 +158,7 @@ const Skills = () => {
                   {category.title}
                 </h3>
                 
+                {/* Skills grid within each category */}
                 <div className="grid grid-cols-2 gap-6">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="flex flex-col items-center group">
@@ -173,12 +180,13 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Enhanced certifications */}
+          {/* Certifications section */}
           <div className="mt-16 text-center animate-fade-in-up animation-delay-1000">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
               Certifications & Achievements
             </h3>
             
+            {/* Certifications grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 'Endpoint Security Certified',
@@ -191,6 +199,7 @@ const Skills = () => {
                   className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg shadow-blue-500/10 dark:shadow-blue-400/10 hover:shadow-xl hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 group hover:scale-105 hover:-translate-y-2"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
+                  {/* Checkmark icon */}
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-teal-600 dark:from-blue-500 dark:to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30 dark:shadow-blue-400/30 group-hover:scale-110 transition-all duration-300">
                     <span className="text-white font-bold text-xl">✓</span>
                   </div>

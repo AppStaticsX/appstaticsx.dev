@@ -3,10 +3,12 @@ import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Header = () => {
+  // Component state management
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
+  // Handle scroll effects for header background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -15,6 +17,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Navigation menu items
   const navItems = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
@@ -23,6 +26,7 @@ const Header = () => {
     { href: '#contact', label: 'Contact' },
   ];
 
+  // Handle navigation clicks with smooth scrolling
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
     const element = document.querySelector(href);
@@ -39,13 +43,14 @@ const Header = () => {
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
+          {/* Logo/Brand section */}
           <div className="flex-shrink-0">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 dark:from-blue-400 dark:to-teal-400 bg-clip-text text-transparent drop-shadow-sm">
               Anushka Umayanga
             </h1>
           </div>
 
-          
+          {/* Desktop navigation menu */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
@@ -60,7 +65,7 @@ const Header = () => {
               ))}
             </div>
             
-            
+            {/* Theme toggle button for desktop */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 dark:hover:shadow-blue-400/25 hover:scale-110"
@@ -69,7 +74,7 @@ const Header = () => {
             </button>
           </div>
 
-        
+          {/* Mobile menu controls */}
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={toggleTheme}
@@ -86,7 +91,7 @@ const Header = () => {
           </div>
         </div>
 
-        
+        {/* Mobile dropdown menu */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg shadow-lg shadow-blue-500/10 dark:shadow-blue-400/20 mt-2 border border-gray-200/50 dark:border-gray-700/50">

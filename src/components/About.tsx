@@ -1,7 +1,7 @@
-import React from 'react';
 import { Code, Smartphone, Users, Award } from 'lucide-react';
 
 const About = () => {
+  // Statistics data for achievement cards
   const stats = [
     { icon: Code, label: 'Projects Completed', value: '15+' },
     { icon: Smartphone, label: 'Mobile Apps', value: '12+' },
@@ -13,8 +13,9 @@ const About = () => {
     <section id="about" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+          {/* Left Column - About Content */}
           <div className="space-y-8 animate-fade-in-left">
+            {/* Section Header */}
             <div className="space-y-4">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
                 About Me
@@ -22,6 +23,7 @@ const About = () => {
               <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-teal-600 dark:from-blue-400 dark:to-teal-400 rounded-full shadow-lg shadow-blue-500/50 dark:shadow-blue-400/50 animate-glow"></div>
             </div>
 
+            {/* About Description */}
             <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
               <p className="animate-fade-in animation-delay-200">
                 I'm a passionate mobile application developer with extensive experience 
@@ -44,7 +46,7 @@ const About = () => {
               </p>
             </div>
 
-        
+            {/* Skills Grid */}
             <div className="grid grid-cols-2 gap-4 animate-fade-in-up animation-delay-800">
               <div className="space-y-2 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 transition-all duration-300">
                 <h4 className="font-semibold text-gray-900 dark:text-white">Frontend</h4>
@@ -65,7 +67,7 @@ const About = () => {
             </div>
           </div>
 
-        
+          {/* Right Column - Statistics Cards */}
           <div className="grid grid-cols-2 gap-6 animate-fade-in-right">
             {stats.map((stat, index) => (
               <div

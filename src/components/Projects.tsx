@@ -1,4 +1,3 @@
-import React from 'react';
 import { ExternalLink, Github, Smartphone } from 'lucide-react';
 
 const Projects = () => {
@@ -62,6 +61,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header with title and description */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Projects
@@ -72,6 +72,7 @@ const Projects = () => {
           </p>
         </div>
 
+        {/* Featured projects grid */}
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
           {projects.filter(project => project.featured).map((project, index) => (
             <div
@@ -79,6 +80,7 @@ const Projects = () => {
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg shadow-blue-500/10 dark:shadow-blue-400/10 hover:shadow-2xl hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 transition-all duration-500 overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
               style={{ animationDelay: `${index * 200}ms` }}
             >
+              {/* Project image with overlay and featured badge */}
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
@@ -93,6 +95,7 @@ const Projects = () => {
                 </div>
               </div>
 
+              {/* Project details */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                   {project.title}
@@ -102,6 +105,7 @@ const Projects = () => {
                   {project.description}
                 </p>
 
+                {/* Technology tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -113,6 +117,7 @@ const Projects = () => {
                   ))}
                 </div>
 
+                {/* Action buttons */}
                 <div className="flex gap-4">
                   <a
                     href={project.liveUrl}
@@ -134,7 +139,7 @@ const Projects = () => {
           ))}
         </div>
 
-      
+        {/* Other projects section */}
         <div className="animate-fade-in-up animation-delay-1000">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
             Other Projects
@@ -164,6 +169,7 @@ const Projects = () => {
                     {project.description.substring(0, 100)}...
                   </p>
 
+                  {/* Limited technology tags with count indicator */}
                   <div className="flex flex-wrap gap-1 mb-3">
                     {project.technologies.slice(0, 2).map((tech, techIndex) => (
                       <span
@@ -180,6 +186,7 @@ const Projects = () => {
                     )}
                   </div>
 
+                  {/* Compact action links */}
                   <div className="flex gap-3">
                     <a
                       href={project.liveUrl}
